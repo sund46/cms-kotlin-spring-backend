@@ -3,6 +3,13 @@ spring:
     url: jdbc:mysql://localhost:13306/cms?autoReconnect=true
     username: root
     password: 'root'
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        default_batch_fetch_size: 1000
   flyway:
     url: ${spring.datasource.url}
     user: ${spring.datasource.username}
@@ -13,3 +20,14 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
+# ?? ??
+server:
+  port: 8080
+
+# cors ??
+cors:
+  allowed-origins: '*'
+  allowed-methods: GET,POST,PUT,PATCH,DELETE,OPTIONS
+  allowed-headers: '*'
+  max-age: 3600
